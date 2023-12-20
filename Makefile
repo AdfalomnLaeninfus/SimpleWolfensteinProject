@@ -1,12 +1,12 @@
 PROJ_NAME:= Wolfstein
 
 CC := gcc
-CFLAGS := -Wall -O2
+CFLAGS := -Wall -O2 -Iinclude
 
 SRC_DIR := src
 BUILD_DIR := build
 
-SOURCES := $(wildcard $(SRC_DIR)/*.c)
+SOURCES := main.c $(wildcard $(SRC_DIR)/*.c)
 OBJECTS := $(SOURCES:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 OUTPUT := $(BUILD_DIR)/$(PROJ_NAME)
 
@@ -16,7 +16,7 @@ $(OUTPUT): $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
-	mkdir -p $(BUILD_DIR)
+	mkdir $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
