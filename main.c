@@ -1,13 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#ifdef _WIN32
-    #define SDL_HANDLED_MAIN
+#if defined(_WIN32) || defined(_win32)
+    #define SDL_MAIN_HANDLED
 #endif
 
-#include <SDL2/SDL.h>
+#include <wolfstein.h>
 
-int main(void)
+int main(int argc, char *argv[])
 {
     return 0;
 }
