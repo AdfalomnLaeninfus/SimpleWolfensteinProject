@@ -7,6 +7,6 @@ typedef struct vec2 {
 } Vec2;
 
 float vec2_dot( Vec2 v1, Vec2 v2 );
-float vec2_lenght( Vec2 v1, Vec2 v2 );
+float vec2_lenght( Vec2 v1 );
 
 #endif
