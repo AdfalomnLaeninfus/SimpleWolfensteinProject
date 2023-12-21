@@ -15,4 +15,6 @@
     #define PI_DIV_TWO  1.5707963267
     #define PI_DIV_180  0.0174532925
 
+    #define MAP_SIZE 8
+
 #endif
