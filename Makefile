@@ -9,14 +9,14 @@ BUILD_DIR := build
 SOURCES := main.c $(wildcard $(SRC_DIR)/*.c)
 OBJECTS := $(SOURCES:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 OUTPUT := $(BUILD_DIR)/$(PROJ_NAME)
+INCLUDES := -lSDL2
 
 all: $(OUTPUT)
 
 $(OUTPUT): $(OBJECTS)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^  $(INCLUDES)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
-	mkdir $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
