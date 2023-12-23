@@ -11,15 +11,18 @@ OBJECTS := $(SOURCES:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 OUTPUT := $(BUILD_DIR)/$(PROJ_NAME)
 INCLUDES := -lSDL2
 
-all: $(OUTPUT)
-
 $(OUTPUT): $(OBJECTS)
-	$(CC) $(CFLAGS) -o $@ $^  $(INCLUDES)
+	$(CC) $(CFLAGS) -o $@ $^ $(INCLUDES)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+BUILD_DIR := build
+BUILD_DIR := $(subst /,$(SEPARETOR),$(BUILD_DIR))
+
 clean:
-	rm -rf $(BUILD_DIR)
+	DEL /Q build\*.o
+
+all: $(OUTPUT)
 
 .PHONY: all clean
