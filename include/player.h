@@ -4,6 +4,7 @@
 #include "vec2.h"
 
 typedef struct player {
+    float angle;
     Vec2 position;
 } Player;
 
