@@ -7,7 +7,7 @@
 
     #include "SDL2/SDL.h"
     
-    #include <player.h>
+    #include <entity.h>
 
     #define WINDOW_TITLE        "Wolfenstein Project"
     #define MIN_WINDOW_WIDTH    800
