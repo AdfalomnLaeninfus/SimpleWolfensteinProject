@@ -46,6 +46,6 @@ Vec2 vec2_rotate( const Vec2 *v1, const float angle)
 {
     return (Vec2) {
         ( v1->x * cosf(angle) ) - ( v1->x * sinf(angle) ),
-        ( v1->y * sinf(angle) ) - ( v1->y * cosf(angle) )
+        ( v1->y * sinf(angle) ) + ( v1->y * cosf(angle) )
     };
 }
