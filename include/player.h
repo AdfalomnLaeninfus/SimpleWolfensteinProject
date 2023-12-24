@@ -5,9 +5,6 @@
 
 typedef EntityPlayableInstance Player;
 
-void set_player_angle( App *app, Player *player )
-{
-
-}
+void set_player_angle( Player *player, float value );
 
 #endif
