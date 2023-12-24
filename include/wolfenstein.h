@@ -5,11 +5,12 @@
     #include <stdlib.h>
     #include <stdbool.h>
 
-    #include "SDL2/SDL.h"
+    #include <SDL2/SDL.h>
     
-    #include <app.h>
     #include <vec2.h>
+    #include <app.h>
     #include <utils.h>
+    
     #include <entity.h>
     #include <player.h>
 

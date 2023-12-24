@@ -1,11 +1,11 @@
 #ifndef _UTILS_H_
 #define _UTILS_H_
 
-#include <wolfenstein.h>
+#include "app.h"
 
 void draw_map( const int *map, App *app );
 void draw_rect( App *app, int x, int y, int w, int h );
 
-float get_window_ratio( App *app );
+WindowRatio get_window_ratio( App *app );
 
 #endif

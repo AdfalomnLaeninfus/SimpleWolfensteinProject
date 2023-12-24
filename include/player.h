@@ -1,7 +1,7 @@
 #ifndef _PLAYER_H_
 #define _PLAYER_H_
 
-#include <wolfenstein.h>
+#include "entity.h"
 
 typedef EntityPlayableInstance Player;
 
