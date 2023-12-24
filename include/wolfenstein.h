@@ -8,6 +8,8 @@
     #include "SDL2/SDL.h"
     
     #include <app.h>
+    #include <vec2.h>
+    #include <utils.h>
     #include <entity.h>
     #include <player.h>
 
