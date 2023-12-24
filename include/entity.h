@@ -34,4 +34,6 @@ typedef struct entity_playable_instance {
     EntityBasicAtribute atributes;
 } EntityPlayableInstance;
 
+void set_entity_place(EntityInstance *entity, Vec2 place);
+
 #endif
