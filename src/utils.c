@@ -29,3 +29,10 @@ void draw_rect( App *app, int x, int y, int w, int h )
     SDL_SetRenderDrawColor( app->renderer, 255, 255, 255, 255 );
     SDL_RenderFillRect( app->renderer, &r );
 }
+
+WindowRatio get_window_ratio( App *app )
+{
+    int w, h;
+    SDL_GetWindowSize( app->window, &w, &h );
+    return ( WindowRatio ) { w / MIN_WINDOW_WIDTH, h / MIN_WINDOW_HEIGHT };
+}
