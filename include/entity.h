@@ -15,13 +15,21 @@ typedef struct entity_basic_atribute {
     bool canAttach;
 } EntityBasicAtribute;
 
+typedef struct entity_render_base {
+    SDL_Rect rect;
+    SDL_Surface surface;
+} EntityRenderBase;
+
 typedef struct entity_instance {
+    EntityRenderBase render;
     EntityMoveBase transform;
     EntityBasicAtribute atributes;
 } EntityInstance;
 
 typedef struct entity_playable_instance {
     int life;
+
+    EntityRenderBase render;
     EntityMoveBase transform;
     EntityBasicAtribute atributes;
 } EntityPlayableInstance;
