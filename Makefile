@@ -25,4 +25,7 @@ clean:
 
 all: $(OUTPUT)
 
+run:
+	$(BUILD_DIR)\$(PROJ_NAME)
+
 .PHONY: all clean
