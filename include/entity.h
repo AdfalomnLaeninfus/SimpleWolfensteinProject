@@ -2,9 +2,11 @@
 #define _ENTITY_H_
 
 #include "vec2.h"
+#include "wolfenstein.h"
+
 #include <math.h>
-#include <SDL2/SDL.h>
 #include <stdbool.h>
+#include <SDL2/SDL.h>
 
 typedef struct entity_move_base {
     float angle;

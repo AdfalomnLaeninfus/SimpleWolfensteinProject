@@ -3,8 +3,8 @@
 void set_entity_place( EntityTransform_t *entityTransform, Vec2 place )
 {
     entityTransform->position = (Vec2) {
-        (place.x * cosf(entityTransform->angle)) - (place.x * sinf(entityTransform->angle)),
-        (place.y * sinf(entityTransform->angle)) + (place.y * cosf(entityTransform->angle))
+        place.x * cosf( toRadians( entityTransform->angle ) ),
+        place.y * sinf( toRadians( entityTransform->angle ) )
     };
 }
 
