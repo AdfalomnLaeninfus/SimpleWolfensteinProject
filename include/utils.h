@@ -7,9 +7,11 @@
     #define PI              3.1415926535
 #endif
 
-#define PI_TIMES_TWO    6.2831853071
-#define PI_DIV_TWO      1.5707963267
-#define PI_DIV_180      0.0174532925
+#ifdef PI
+    #define PI_TIMES_TWO    6.2831853071
+    #define PI_DIV_TWO      1.5707963267
+    #define PI_DIV_180      0.0174532925
+#endif
 
 #define MAP_SIZE_WIDTH  8
 #define MAP_SIZE_HEIGHT 8
