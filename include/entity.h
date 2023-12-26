@@ -10,13 +10,13 @@ typedef struct entity_move_base {
     float angle;
     Vec2 position;
     Vec2 rotation;
-} EntityTransform;
+} EntityTransform_t;
 
 typedef struct entity_basic_atribute {
     bool hasPlayable;
     bool canRun;
     bool canAttach;
-} EntityBasicAtribute;
+} EntityBasicAtribute_t;
 
 typedef struct entity_render_base {
     SDL_Rect rect;
@@ -25,19 +25,19 @@ typedef struct entity_render_base {
 
 typedef struct entity_instance {
     EntityRenderBase render;
-    EntityTransform transform;
-    EntityBasicAtribute atributes;
-} EntityInstance;
+    EntityTransform_t transform;
+    EntityBasicAtribute_t atributes;
+} EntityInstance_t;
 
 typedef struct entity_playable_instance {
     int life;
 
     EntityRenderBase render;
-    EntityTransform transform;
-    EntityBasicAtribute atributes;
-} EntityPlayableInstance;
+    EntityTransform_t transform;
+    EntityBasicAtribute_t atributes;
+} EntityPlayableInstance_t;
 
-void set_entity_place( EntityTransform *entityTransform, Vec2 place );
-void set_entity_rotation( EntityTransform *entityTransform, Vec2 rotation );
+void set_entity_place( EntityTransform_t *entityTransform, Vec2 place );
+void set_entity_rotation( EntityTransform_t *entityTransform, Vec2 rotation );
 
 #endif
