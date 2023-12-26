@@ -3,6 +3,8 @@
 
 #include "app.h"
 
+float toRadians( float degrees );
+
 void draw_map( const int *map, App *app );
 void draw_rect( App *app, int x, int y, int w, int h );
 

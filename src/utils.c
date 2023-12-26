@@ -1,4 +1,11 @@
 #include <utils.h>
+#include "wolfenstein.h"
+
+float toRadians( float degrees )
+{
+    return degrees * PI_DIV_180;
+}
+
 
 void draw_map( const int *map, App *app )
 {
