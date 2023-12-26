@@ -2,6 +2,7 @@
 #define _ENTITY_H_
 
 #include "vec2.h"
+#include <math.h>
 #include <SDL2/SDL.h>
 #include <stdbool.h>
 
@@ -9,7 +10,7 @@ typedef struct entity_move_base {
     float angle;
     Vec2 position;
     Vec2 rotation;
-} EntityMoveBase;
+} EntityTransform;
 
 typedef struct entity_basic_atribute {
     bool hasPlayable;
@@ -24,7 +25,7 @@ typedef struct entity_render_base {
 
 typedef struct entity_instance {
     EntityRenderBase render;
-    EntityMoveBase transform;
+    EntityTransform transform;
     EntityBasicAtribute atributes;
 } EntityInstance;
 
@@ -32,10 +33,11 @@ typedef struct entity_playable_instance {
     int life;
 
     EntityRenderBase render;
-    EntityMoveBase transform;
+    EntityTransform transform;
     EntityBasicAtribute atributes;
 } EntityPlayableInstance;
 
-void set_entity_place(EntityInstance *entity, Vec2 place);
+void set_entity_place( EntityTransform *entityTransform, Vec2 place );
+void set_entity_rotation( EntityTransform *entityTransform, Vec2 rotation );
 
 #endif

@@ -1,11 +1,17 @@
 #include <entity.h>
 
-void set_entity_place( EntityInstance *entity, Vec2 place )
+void set_entity_place( EntityTransform *entityTransform, Vec2 place )
 {
-    entity->transform.position = place;
+    entityTransform->position = (Vec2) {
+        (place.x * cosf(entityTransform->angle)) - (place.x * sinf(entityTransform->angle)),
+        (place.y * sinf(entityTransform->angle)) + (place.y * cosf(entityTransform->angle))
+    };
 }
 
-void set_entity_playable_place( EntityPlayableInstance *entity, Vec2 place )
+void set_entity_rotation( EntityTransform *entityTransform, Vec2 rotation )
 {
-    entity->transform.position = place;
+    entityTransform->rotation = (Vec2) {
+        (rotation.x * cosf(entityTransform->angle)) - (rotation.x * sinf(entityTransform->angle)),
+        (rotation.y * sinf(entityTransform->angle)) + (rotation.y * cosf(entityTransform->angle))
+    };
 }
