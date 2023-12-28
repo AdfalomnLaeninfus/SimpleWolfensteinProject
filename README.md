@@ -1,6 +1,6 @@
 # SimpleWolfensteinProject
 
-This is an simple project Wolfenstein Project for apply my skills and knowledge <br>
+This is an simple project Wolfenstein Project for apply my skills and knowledge
 using C languange and SDL ( Simple DirectMedia Layer ) and raster techniques.
 
 ## Todo List
