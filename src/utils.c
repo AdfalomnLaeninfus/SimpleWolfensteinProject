@@ -6,7 +6,6 @@ float toRadians( float degrees )
     return degrees * PI_DIV_180;
 }
 
-
 void draw_map( const int *map, App *app )
 {
     int x, y, xo, yo;
@@ -15,7 +14,7 @@ void draw_map( const int *map, App *app )
     {
         for ( x = 0; x < MAP_SIZE_WIDTH; x++ )
         {
-            if (map[y * MAP_SIZE_WIDTH + x] == 1) {
+            if ( map[y * MAP_SIZE_WIDTH + x] == 1 ) {
                 SDL_SetRenderDrawColor( app->renderer, 255, 255, 255, 255 );
             } else {
                 SDL_SetRenderDrawColor( app->renderer, 0, 0, 0, 255 );
