@@ -11,5 +11,5 @@ using C languange and SDL ( Simple DirectMedia Layer ) and raster techniques.
 
 ## References Used
 
-[https://www.mathsisfun.com/](Math is fun)
-[https://www.youtube.com/@3DSage/videos](3D Stage Channel)
+[Math is fun ](https://www.mathsisfun.com/)
+[3D Stage Channel](https://www.youtube.com/@3DSage/videos)
