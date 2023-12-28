@@ -20,12 +20,12 @@
 #define WALL_WIDTH      64
 #define WALL_HEIGHT     64
 
-#define PLAYER_VELOCITY .2
+#define PLAYER_VELOCITY 1.0f
 
 float toRadians( float degrees );
 
-void draw_map( const int *map, App *app );
-void draw_rect( App *app, int x, int y, int w, int h );
+extern void draw_map( const int *map, App *app );
+extern void draw_rect( App *app, int x, int y, int w, int h );
 
 WindowRatio get_window_ratio( App *app );
 
