@@ -2,14 +2,13 @@
 #define _ENTITY_H_
 
 #include "vec2.h"
-#include "wolfenstein.h"
+#include "utils.h"
 
 #include <math.h>
 #include <stdbool.h>
 #include <SDL2/SDL.h>
 
 typedef struct entity_move_base {
-    float angle;
     Vec2 position;
     Vec2 rotation;
 } EntityTransform_t;
@@ -39,7 +38,8 @@ typedef struct entity_playable_instance {
     EntityBasicAtribute_t atributes;
 } EntityPlayableInstance_t;
 
-void set_entity_place( EntityTransform_t *entityTransform, Vec2 place );
-void set_entity_rotation( EntityTransform_t *entityTransform, Vec2 rotation );
+extern void entity_move_toward( EntityTransform_t *entityTransform, float velocity );
+extern void set_entity_place( EntityTransform_t *entityTransform, Vec2 place );
+extern void set_entity_rotation( EntityTransform_t *entityTransform, Vec2 rotation );
 
 #endif
