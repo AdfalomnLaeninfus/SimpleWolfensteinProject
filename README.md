@@ -8,3 +8,8 @@ using C languange and SDL ( Simple DirectMedia Layer ) and raster techniques.
 - [ ] Implement system for render in raster.
 - [ ] Fix entity rotation function.
 - [ ] Implement better way for get keyboard keydown.
+
+## References Used
+
+[https://www.mathsisfun.com/](Math is fun)
+[https://www.youtube.com/@3DSage/videos](3D Stage Channel)
