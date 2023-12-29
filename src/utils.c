@@ -6,13 +6,20 @@ float toRadians( float degrees )
     return degrees * PI_DIV_180;
 }
 
+void draw_rect( App *app, int x, int y, int w, int h )
+{
+    SDL_Rect r = { x, y, w, h };
+    SDL_SetRenderDrawColor( app->renderer, 255, 255, 255, 255 );
+    SDL_RenderFillRect( app->renderer, &r );
+}
+
 void draw_map( const int *map, App *app )
 {
-    int x, y, xo, yo;
+    int xo, yo;
 
-    for ( y = 0; y < MAP_SIZE_HEIGHT; y++ )
+    for ( int y = 0; y < MAP_SIZE_HEIGHT; y++ )
     {
-        for ( x = 0; x < MAP_SIZE_WIDTH; x++ )
+        for ( int x = 0; x < MAP_SIZE_WIDTH; x++ )
         {
             if ( map[y * MAP_SIZE_WIDTH + x] == 1 ) {
                 SDL_SetRenderDrawColor( app->renderer, 255, 255, 255, 255 );
@@ -27,13 +34,6 @@ void draw_map( const int *map, App *app )
             SDL_RenderFillRect( app->renderer, &r );
         }
     }
-}
-
-void draw_rect( App *app, int x, int y, int w, int h )
-{
-    SDL_Rect r = { x, y, w, h };
-    SDL_SetRenderDrawColor( app->renderer, 255, 255, 255, 255 );
-    SDL_RenderFillRect( app->renderer, &r );
 }
 
 WindowRatio get_window_ratio( App *app )
