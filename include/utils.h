@@ -24,8 +24,8 @@
 
 float toRadians( float degrees );
 
-extern void draw_map( const int *map, App *app );
 extern void draw_rect( App *app, int x, int y, int w, int h );
+extern void draw_map( const int *map, App *app );
 
 WindowRatio get_window_ratio( App *app );
 
