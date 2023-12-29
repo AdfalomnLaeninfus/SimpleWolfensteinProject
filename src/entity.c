@@ -2,9 +2,7 @@
 
 void entity_move_forward( EntityTransform_t *entityTransform, float velocity )
 {
-    entityTransform->position.x = entityTransform->position.x + cosf(entityTransform->rotation.x) * velocity;
     entityTransform->position.y = entityTransform->position.y - sinf(entityTransform->rotation.x) * velocity;
-    printf("<EntityPosition(x: %.1f, y:%.1f)>\n", entityTransform->position.x, entityTransform->position.y);
 }
 
 void set_entity_place( EntityTransform_t *entityTransform, Vec2 place )
