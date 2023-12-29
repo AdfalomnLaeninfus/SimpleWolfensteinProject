@@ -1,6 +1,6 @@
 #include <entity.h>
 
-void entity_move_toward( EntityTransform_t *entityTransform, float velocity )
+void entity_move_forward( EntityTransform_t *entityTransform, float velocity )
 {
     entityTransform->position.x = entityTransform->position.x + cosf(entityTransform->rotation.x) * velocity;
     entityTransform->position.y = entityTransform->position.y - sinf(entityTransform->rotation.x) * velocity;
@@ -19,5 +19,5 @@ void set_entity_rotation( EntityTransform_t *entityTransform, Vec2 rotation )
         rotation.y > 180.0f ? rotation.y - 180.0f : rotation.y < 0.0f ? rotation.y + 180.0f : rotation.y
     };
 
-    printf("<EntityRotation(x: %.1f, y:%.1f)>\n", entityTransform->rotation.x, entityTransform->rotation.y);
+    // printf("<EntityRotation(x: %.1f, y:%.1f)>\n", entityTransform->rotation.x, entityTransform->rotation.y);
 }
