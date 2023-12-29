@@ -23,4 +23,6 @@ typedef struct app {
     unsigned char *keyboardKeys;
 } App;
 
+extern Vec2 App_GetCenterWindow( SDL_Window *window );
+
 #endif
