@@ -20,7 +20,7 @@ typedef struct app {
     WindowRatio window_ratio;
 
     bool quit;
-    unsigned int *keyboardKeys;
+    unsigned char *keyboardKeys;
 } App;
 
 #endif
