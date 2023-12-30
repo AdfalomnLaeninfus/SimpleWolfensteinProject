@@ -13,9 +13,7 @@ void set_entity_place( EntityTransform_t *entityTransform, Vec2 place )
 void set_entity_rotation( EntityTransform_t *entityTransform, Vec2 rotation )
 {
     entityTransform->rotation = (Vec2) {
-        rotation.x > 180.0f ? rotation.x - 180.0f : rotation.x < 0.0f ? rotation.x + 180.0f : rotation.x,
-        rotation.y > 180.0f ? rotation.y - 180.0f : rotation.y < 0.0f ? rotation.y + 180.0f : rotation.y
+        rotation.x > PI_TIMES_TWO ? rotation.x - PI_TIMES_TWO : rotation.x < 0.0f ? rotation.x + PI_TIMES_TWO : rotation.x,
+        rotation.y > PI_TIMES_TWO ? rotation.y - PI_TIMES_TWO : rotation.y < 0.0f ? rotation.y + PI_TIMES_TWO : rotation.y
     };
-
-    // printf("<EntityRotation(x: %.1f, y:%.1f)>\n", entityTransform->rotation.x, entityTransform->rotation.y);
 }
