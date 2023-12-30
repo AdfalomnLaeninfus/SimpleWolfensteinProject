@@ -7,7 +7,7 @@ using C languange and SDL ( Simple DirectMedia Layer ) and raster techniques.
 
 - [ ] Implement system for render in raster.
 - [ ] Fix entity rotation function.
-- [ x ] Implement better way for get keyboard keydown.
+- [x] Implement better way for get keyboard keydown.
 
 ## References Used
 
