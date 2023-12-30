@@ -1,7 +1,7 @@
-PROJ_NAME:= Wolfstein
+PROJ_NAME:= Wolfenstein
 
 CC := gcc
-CFLAGS := -Wall -O2 -Iinclude
+CFLAGS := -Iinclude
 
 SRC_DIR := src
 BUILD_DIR := build
