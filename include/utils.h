@@ -20,7 +20,7 @@
 #define WALL_WIDTH      64
 #define WALL_HEIGHT     64
 
-#define PLAYER_VELOCITY 1.0f
+#define PLAYER_VELOCITY 2.0f
 
 float toRadians( float degrees );
 
