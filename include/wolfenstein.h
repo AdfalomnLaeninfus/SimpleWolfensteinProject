@@ -5,6 +5,9 @@
     #include <stdlib.h>
     #include <stdbool.h>
 
+    #if defined(_WIN32) || defined(_win32)
+        #define SDL_HANDLED_MAIN
+    #endif
     #include <SDL2/SDL.h>
     
     #include <vec2.h>
