@@ -6,16 +6,12 @@ CFLAGS := -Iinclude
 SRC_DIR := src
 BUILD_DIR := build
 
-SOURCES := main.c $(wildcard $(SRC_DIR)/*.c)
-OBJECTS := $(SOURCES:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
+SOURCES := main.c src/*.c
 OUTPUT := $(BUILD_DIR)/$(PROJ_NAME)
-INCLUDES := -lSDL2
+LIBS := -lSDL2 -lm
 
-$(OUTPUT): $(OBJECTS)
-	$(CC) $(CFLAGS) -o $@ $^ $(INCLUDES)
-
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OUTPUT):
+	$(CC) $(SOURCES) $(CFLAGS) -o $@ $^ $(LIBS)
 
 BUILD_DIR := build
 BUILD_DIR := $(subst /,$(SEPARETOR),$(BUILD_DIR))
