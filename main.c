@@ -1,5 +1,5 @@
 #if defined(_WIN32) || defined(_win32)
-    #define SDL_MAIN_HANDLED
+    #include <windows.h>    
 #endif
 
 #include <wolfenstein.h>
@@ -122,3 +122,10 @@ int main(int argc, char *argv[])
     SDL_DestroyWindow(app.window);
     SDL_Quit();
 }
+
+#if defined(_WIN32) || defined(_win32)
+int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
+{
+    return main(__argc, __argv);
+}
+#endif
