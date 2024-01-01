@@ -1,11 +1,12 @@
 CC=gcc
 CFLAGS=-Wall \
 		-O2 \
-		-DNDEBUG \
-		-Iincludes \
 		-pipe \
 		-fpic \
 		-flto \
+		-march=native \
+		-DNDEBUG \
+		-Iincludes \
 		-funroll-loops \
 		-ftree-vectorize \
 		-finline-functions
