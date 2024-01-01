@@ -1,27 +1,36 @@
-PROJ_NAME:= Wolfenstein
+CC=gcc
+CFLAGS=-Wall \
+		-O2 \
+		-DNDEBUG \
+		-Iincludes \
+		-pipe
 
-CC := gcc
-CFLAGS := -Iinclude
+TARGET=Wolfenstein
 
-SRC_DIR := src
-BUILD_DIR := build
+SRC=src
+OBJ=obj
+BUILD=build
+INCLUDES=-lm -lSDL2
 
-SOURCES := main.c src/*.c
-OUTPUT := $(BUILD_DIR)/$(PROJ_NAME)
-LIBS := -lSDL2 -lm
+ifeq ($(OS),Windows_NT)
+    RM=DEL /Q /S /F
+else
+    RM=rm -f
+endif
 
-$(OUTPUT):
-	$(CC) $(SOURCES) $(CFLAGS) -o $@ $^ $(LIBS)
+SRCS=$(wildcard $(SRC)/*.c)
+OBJS=$(patsubst $(SRC)/%.c,$(SRC)\\%.o,$(SRCS))
 
-BUILD_DIR := build
-BUILD_DIR := $(subst /,$(SEPARETOR),$(BUILD_DIR))
+all: $(TARGET)
 
-clean:
-	DEL /Q build\*.o
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 
-all: $(OUTPUT)
+$(TARGET): $(OBJS)
+	$(CC) main.c $(OBJS) $(CFLAGS) -o $(BUILD)/$(TARGET) $(INCLUDES)
 
 run:
-	$(BUILD_DIR)\$(PROJ_NAME)
+	$(BUILD)\$(TARGET)
 
-.PHONY: all clean
+clean:
+	$(RM) $(OBJS) $(BUILD)\$(TARGET)
