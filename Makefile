@@ -3,7 +3,12 @@ CFLAGS=-Wall \
 		-O2 \
 		-DNDEBUG \
 		-Iincludes \
-		-pipe
+		-pipe \
+		-fpic \
+		-flto \
+		-funroll-loops \
+		-ftree-vectorize \
+		-finline-functions
 
 TARGET=Wolfenstein
 
