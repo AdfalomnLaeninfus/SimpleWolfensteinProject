@@ -18,12 +18,13 @@ SRCS=$(wildcard $(SRC)/*.c)
 BUILD=build
 INCLUDES=-lm -lSDL2
 
-OUTPUT=$(BUILD)\$(TARGET)
 
 ifeq ($(OS),Windows_NT)
     RM=DEL /Q /S /F
+    OUTPUT=$(BUILD)\$(TARGET).exe
 else
     RM=rm -f
+    OUTPUT=$(BUILD)\$(TARGET)
 endif
 
 
@@ -34,3 +35,6 @@ $(TARGET):
 
 run:
 	$(OUTPUT)
+
+clean:
+	$(RM) $(OUTPUT)
