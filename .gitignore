@@ -1,4 +1,5 @@
 .vscode/
 build/
+build/SDL2.dll
 
 SDL2.dll
