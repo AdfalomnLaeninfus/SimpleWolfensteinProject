@@ -14,9 +14,11 @@ CFLAGS=-Wall \
 TARGET=Wolfenstein
 
 SRC=src
-OBJ=obj
+SRCS=$(wildcard $(SRC)/*.c)
 BUILD=build
 INCLUDES=-lm -lSDL2
+
+OUTPUT=$(BUILD)\$(TARGET)
 
 ifeq ($(OS),Windows_NT)
     RM=DEL /Q /S /F
@@ -24,19 +26,11 @@ else
     RM=rm -f
 endif
 
-SRCS=$(wildcard $(SRC)/*.c)
-OBJS=$(patsubst $(SRC)/%.c,$(SRC)\\%.o,$(SRCS))
 
 all: $(TARGET)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
-
-$(TARGET): $(OBJS)
-	$(CC) main.c $(OBJS) $(CFLAGS) -o $(BUILD)/$(TARGET) $(INCLUDES)
+$(TARGET):
+	$(CC) main.c $(SRCS) $(CFLAGS) -o $(OUTPUT) $(INCLUDES)
 
 run:
-	$(BUILD)\$(TARGET)
-
-clean:
-	$(RM) $(OBJS) $(BUILD)\$(TARGET)
+	$(OUTPUT)
