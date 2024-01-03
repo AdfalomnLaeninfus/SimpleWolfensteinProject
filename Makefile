@@ -24,7 +24,7 @@ ifeq ($(OS),Windows_NT)
     OUTPUT=$(BUILD)\$(TARGET).exe
 else
     RM=rm -f
-    OUTPUT=$(BUILD)\$(TARGET)
+    OUTPUT=$(BUILD)/$(TARGET)
 endif
 
 
