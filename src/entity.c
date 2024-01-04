@@ -1,5 +1,10 @@
 #include <entity.h>
 
+EntityInstance_t entity_create( EntityRenderBase render, EntityBasicAttribute_t attributes, EntityTransform_t transform )
+{
+    return ( EntityInstance_t ) { render, transform, attributes };
+}
+
 void entity_move_forward( EntityTransform_t *entityTransform, float velocity )
 {
     entityTransform->position.y = entityTransform->position.y - sinf(entityTransform->rotation.x) * velocity;

@@ -17,7 +17,7 @@ typedef struct entity_basic_atribute {
     bool hasPlayable;
     bool canRun;
     bool canAttach;
-} EntityBasicAtribute_t;
+} EntityBasicAttribute_t;
 
 typedef struct entity_render_base {
     SDL_Rect rect;
@@ -27,7 +27,7 @@ typedef struct entity_render_base {
 typedef struct entity_instance {
     EntityRenderBase render;
     EntityTransform_t transform;
-    EntityBasicAtribute_t atributes;
+    EntityBasicAttribute_t atributes;
 } EntityInstance_t;
 
 typedef struct entity_playable_instance {
@@ -35,7 +35,7 @@ typedef struct entity_playable_instance {
 
     EntityRenderBase render;
     EntityTransform_t transform;
-    EntityBasicAtribute_t atributes;
+    EntityBasicAttribute_t atributes;
 } EntityPlayableInstance_t;
 
 extern void entity_move_forward( EntityTransform_t *entityTransform, float velocity );
