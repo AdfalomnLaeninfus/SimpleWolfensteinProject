@@ -2,6 +2,7 @@
 #define _UTILS_H_
 
 #include "app.h"
+#include "color.h"
 
 #ifndef PI
     #define PI              3.1415926535
