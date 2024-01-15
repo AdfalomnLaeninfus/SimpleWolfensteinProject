@@ -39,7 +39,9 @@ typedef struct entity_playable_instance {
 } EntityPlayableInstance_t;
 
 extern void entity_move_forward( EntityTransform_t *entityTransform, float velocity );
-extern void set_entity_place( EntityTransform_t *entityTransform, Vec2 place );
+extern void set_entity_position( EntityTransform_t *entityTransform, Vec2 position );
 extern void set_entity_rotation( EntityTransform_t *entityTransform, Vec2 rotation );
+extern Vec2 get_entity_position( EntityInstance_t *entity );
+extern Vec2 get_entity_rotation( EntityInstance_t *entity );
 
 #endif
