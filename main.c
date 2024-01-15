@@ -21,8 +21,8 @@ int main(int argc, char *argv[])
     App app;
     EntityInstance_t player;
 
-    Vec2 keysPressed = { 0.0f, 0.0f };
-    Vec2 windowCenter = { 0.0f, 0.0f };
+    Vec2f keysPressed = { 0.0f, 0.0f };
+    Vec2f windowCenter = { 0.0f, 0.0f };
 
     player.atributes.hasPlayable = true;
     player.transform.position.x = player.transform.position.y = 32 + MAP_SIZE  * 2;
@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
     app.renderer = SDL_CreateRenderer( app.window, -1, SDL_RENDERER_SOFTWARE );
     SDL_GetWindowSize( app.window, &app.window_size.width, &app.window_size.height );
 
-    app.keyboardKeys = (unsigned char *) SDL_GetKeyboardState(NULL);
+    app.keyboardKeys = ( unsigned char * ) SDL_GetKeyboardState( NULL );
 
     app.quit = false;
     while ( !app.quit )
@@ -52,21 +52,20 @@ int main(int argc, char *argv[])
 
         while ( SDL_PollEvent( &app.event ) )
         {
-            switch (app.event.type)
+            switch ( app.event.type )
             {
                 case SDL_QUIT: app.quit = true;
                 case SDL_MOUSEMOTION:
                     int mouseX, mouseY;
                     float mouseSensibility = 0.02f;
+                    Vec2f playerCurrentPos = get_entity_position( &player );
 
                     SDL_GetRelativeMouseState( &mouseX, &mouseY );
 
-                    set_entity_rotation( &player.transform, (Vec2)
-                        {
-                            player.transform.rotation.x - sinf( mouseSensibility * -mouseX ),
-                            player.transform.rotation.y + cosf( mouseSensibility * mouseY )
-                        }
-                    );
+                    set_entity_rotation( &player.transform, ( Vec2f ) {
+                        playerCurrentPos.x - sinf( mouseSensibility * -mouseX ),
+                        playerCurrentPos.y + cosf( mouseSensibility * mouseY )
+                    });
 
                     break;
             }
@@ -77,22 +76,15 @@ int main(int argc, char *argv[])
         if ( app.keyboardKeys[SDL_SCANCODE_S] ) { keysPressed.y -= 1; }
         if ( app.keyboardKeys[SDL_SCANCODE_A] ) { keysPressed.x -= 1; }
 
-        float pPosX, pPosY, pRotX, pRotY;
-
-        pPosX = player.transform.position.x;
-        pPosY = player.transform.position.y;
-        pRotX = player.transform.rotation.x;
-        pRotY = player.transform.rotation.y;
-
+        Vec2f playerPos = get_entity_position( &player );
+        Vec2f playerRot = get_entity_rotation( &player );
 
         if ( keysPressed.y != 0.0f )
         {
-            set_entity_place( &player.transform, (Vec2)
-                {
-                    pPosX + (sinf(pRotX) * (PLAYER_VELOCITY * keysPressed.y)),
-                    pPosY - (cosf(pRotX) * (PLAYER_VELOCITY * keysPressed.y))
-                }
-            );
+            set_entity_place( &player.transform, ( Vec2f ) {
+                playerPos.x + (sinf( playerRot.x ) * ( PLAYER_VELOCITY * keysPressed.y )),
+                playerPos.y - (cosf( playerRot.x ) * ( PLAYER_VELOCITY * keysPressed.y ))
+            });
         }
 
         keysPressed.x = keysPressed.y = 0;
@@ -101,31 +93,31 @@ int main(int argc, char *argv[])
         SDL_WarpMouseInWindow( app.window, windowCenter.x, windowCenter.y );
 
         draw_map( map, &app );
-        draw_rect( &app, player.transform.position.x, player.transform.position.y, 12, 12);
+        draw_rect( &app, player.transform.position.x, player.transform.position.y, 12, 12 );
 
         SDL_SetRenderDrawColor( app.renderer, 255, 0, 255, 255 );
         SDL_RenderDrawLine(
             app.renderer,
 
-            pPosX + 5,
-            pPosY + 5,
-
-            pPosX + (sinf(pRotX) * 25),
-            pPosY - (cosf(pRotX) * 25)
+            playerPos.x + 5, playerPos.y + 5,
+            playerPos.x + (sinf(playerPos.x) * 25),
+            playerPos.y - (cosf(playerPos.y) * 25)
         );
 
         SDL_RenderPresent( app.renderer );
-        SDL_Delay(16);
+        SDL_Delay( 16 );
     }
 
-    SDL_DestroyRenderer(app.renderer);
-    SDL_DestroyWindow(app.window);
+    SDL_DestroyRenderer( app.renderer );
+    SDL_DestroyWindow( app.window );
     SDL_Quit();
 }
 
-#if defined(_WIN32) || defined(_win32)
-int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
+#if defined( _WIN32 ) || defined( _win32 )
+
+int WINAPI WinMain( HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow )
 {
     return main(__argc, __argv);
 }
+
 #endif

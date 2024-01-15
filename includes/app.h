@@ -5,12 +5,9 @@
 #include <stdbool.h>
 #include <SDL2/SDL.h>
 
-typedef Vec2 WindowRatio;
+typedef Vec2f WindowRatio;
 
-typedef struct window_size {
-    int width;
-    int height;
-} WindowSize;
+typedef Vec2i WindowSize;
 
 typedef struct app {
     SDL_Event event;
@@ -23,6 +20,6 @@ typedef struct app {
     unsigned char *keyboardKeys;
 } App;
 
-extern Vec2 App_GetCenterWindow( SDL_Window *window );
+extern Vec2f App_GetCenterWindow( SDL_Window *window );
 
 #endif
