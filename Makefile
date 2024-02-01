@@ -11,6 +11,10 @@ CFLAGS=-Wall \
 		-ftree-vectorize \
 		-finline-functions
 
+CDEBUGFLAG=-g \
+			-Wall \
+			-Iincludes
+
 TARGET=Wolfenstein
 
 SRC=src
@@ -32,6 +36,9 @@ all: $(TARGET)
 
 $(TARGET):
 	$(CC) main.c $(SRCS) $(CFLAGS) -o $(OUTPUT) $(INCLUDES)
+
+debug:
+	$(CC) main.c $(SRCS) -g $(CFLAGS) -o $(OUTPUT) $(INCLUDES)
 
 run:
 	$(OUTPUT)
