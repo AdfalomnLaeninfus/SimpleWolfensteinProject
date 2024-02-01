@@ -30,8 +30,8 @@ void draw_map( const int *map, App *app )
             xo = x * MAP_SIZE + MAP_SIZE;
             yo = y * MAP_SIZE + MAP_SIZE;
 
-            SDL_Rect r = { xo, yo, WALL_WIDTH, WALL_HEIGHT };
-            SDL_RenderFillRect( app->renderer, &r );
+            SDL_Rect wallRect = { xo, yo, WALL_WIDTH, WALL_HEIGHT };
+            SDL_RenderFillRect( app->renderer, &wallRect );
         }
     }
 }
