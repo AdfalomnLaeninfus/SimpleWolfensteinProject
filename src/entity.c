@@ -5,12 +5,7 @@ EntityInstance_t entity_create( EntityRenderBase render, EntityBasicAttribute_t 
     return ( EntityInstance_t ) { render, transform, attributes };
 }
 
-void entity_move_forward( EntityTransform_t *entityTransform, float velocity ) 
-{
-    entityTransform->position.y = entityTransform->position.y - sinf(entityTransform->rotation.x) * velocity;
-}
-
-void set_entity_place( EntityTransform_t *entityTransform, Vec2f place ) { entityTransform->position = place; }
+void set_entity_position( EntityTransform_t *entityTransform, Vec2f position ) { entityTransform->position = position; }
 
 void set_entity_rotation( EntityTransform_t *entityTransform, Vec2f rotation )
 {
