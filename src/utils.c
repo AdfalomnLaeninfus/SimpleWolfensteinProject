@@ -27,10 +27,10 @@ void draw_map( const int *map, App *app )
                 SDL_SetRenderDrawColor( app->renderer, 0, 0, 0, 255 );
             }
 
-            xo = x * MAP_SIZE;
-            yo = y * MAP_SIZE;
+            xo = x * MAP_SIZE + MAP_SIZE;
+            yo = y * MAP_SIZE + MAP_SIZE;
 
-            SDL_Rect r = { xo + MAP_SIZE, yo + MAP_SIZE, WALL_WIDTH, WALL_HEIGHT };
+            SDL_Rect r = { xo, yo, WALL_WIDTH, WALL_HEIGHT };
             SDL_RenderFillRect( app->renderer, &r );
         }
     }
