@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     SDL_SetWindowMinimumSize(app.window, MIN_WINDOW_WIDTH, MIN_WINDOW_HEIGHT);
 
     app.renderer = SDL_CreateRenderer( app.window, -1, SDL_RENDERER_SOFTWARE );
-    SDL_GetWindowSize( app.window, &app.window_size.width, &app.window_size.height );
+    SDL_GetWindowSize( app.window, &app.window_size.x, &app.window_size.y );
 
     app.keyboardKeys = ( unsigned char * ) SDL_GetKeyboardState( NULL );
 
