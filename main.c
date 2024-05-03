@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
 
         if ( keysPressed.y != 0.0f )
         {
-            set_entity_place( &player.transform, ( Vec2f ) {
+            set_entity_position( &player.transform, ( Vec2f ) {
                 playerPos.x + (sinf( playerRot.x ) * ( PLAYER_VELOCITY * keysPressed.y )),
                 playerPos.y - (cosf( playerRot.x ) * ( PLAYER_VELOCITY * keysPressed.y ))
             });
