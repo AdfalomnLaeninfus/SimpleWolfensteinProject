@@ -35,10 +35,10 @@ endif
 all: $(TARGET)
 
 $(TARGET):
-	$(CC) main.c $(SRCS) $(CFLAGS) -o $(OUTPUT) $(INCLUDES)
+	$(CC) main.c $(SRCS) $(CFLAGS) -o $(OUTPUT) -Llib $(INCLUDES)
 
 debug:
-	$(CC) main.c $(SRCS) -g $(CFLAGS) -o $(OUTPUT) $(INCLUDES)
+	$(CC) main.c $(SRCS) -g $(CFLAGS) -o $(OUTPUT) -Llib $(INCLUDES)
 
 run:
 	$(OUTPUT)
