@@ -4,8 +4,6 @@ CFLAGS=-Wall \
 		-pipe \
 		-fpic \
 		-flto \
-		-march=native \
-		-DNDEBUG \
 		-Iincludes \
 		-funroll-loops \
 		-ftree-vectorize \
